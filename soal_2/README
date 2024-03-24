@@ -49,6 +49,42 @@ j. Oppie ingin programnya tercatat dengan baik, maka buatlah agar program bisa m
 
 ## 1. register.sh
 
+Soal meminta untuk membuat sebuah code bash bernama register.sh yang bertujuan untuk menerima input 
+data akun peneliti dan meletakkannya ke dalam file users.txt. Oleh karena itu pertama-tama program harus 
+menerima input-input berikut:
+1. Email
+2. Username
+3. Pertanyaan keamanan
+4. Jawaban dari pertanyaan keamanan
+5. Password
 
+Berikut adalah cara kerja code register.sh yang kami buat
+
+1. Menerima input email
+
+Untuk input email, program hanya menerima input string yang sesuai dengan format
+email pada umumnya (contoh@gmail.com). 
+
+'''
+
+if [[ $email =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]+$ ]]; then
+
+    if grep -q "$email" users.txt; then
+
+      echo "Email already exists. Try again."
+
+    else
+
+      break
+
+    fi
+
+else
+    
+    echo "Invalid email address. Try again."
+
+fi
+
+'''
 
 
